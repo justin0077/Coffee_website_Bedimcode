@@ -1,0 +1,25 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+
+h1, h2, h3 {
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+}
+
+.section__title {
+    position: relative;
+    font-size: var(--h1-font-size);
+    padding-left: 1.25rem;
+    margin-bottom: 2.5rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 3px;
+        height: 20px;
+        background-color: var(--first-color);
+    }
+}

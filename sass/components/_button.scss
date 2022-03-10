@@ -1,0 +1,35 @@
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--black-color);
+    color: #fff;
+    padding: 1rem 1.75rem;
+    border-radius: .25rem;
+    font-size: var(-normal-font-size);
+    text-transform: uppercase;
+}
+
+.speciality {
+    &__button {
+        margin-left: 1.25rem;
+    }
+}
+
+.products {
+    &__button {
+        border-radius: 50%;
+        padding: .625rem;
+        display: inline-flex;
+        font-size: 1.25rem;
+        position: absolute;
+        right: 1rem;
+        top: -1.25rem;
+        box-shadow: 0 4px 12px hsla(206, 4%, 4%, .2);
+    }
+}
+  
