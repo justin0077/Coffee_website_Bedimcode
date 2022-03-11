@@ -1,0 +1,34 @@
+/*========== SMALL SCREEN SIZE =========*/
+$screen-xs: 320px;
+
+/*========== MEDIUM SCREEN SIZE =========*/
+$screen-md: 576px;
+
+/*========== MEDIUM / LARGER SCREEN SIZE =========*/
+$screen-mdlg: 767px;
+
+/*========== LARGE SCREEN SIZE =========*/
+$screen-lg: 1040px;
+
+/*========== BIGGEST SCREEN SIZE =========*/
+$screen-bg: 1200px;
+
+/*========== ALTERNATIVE SCREEN SIZE =========*/
+$screen-al: 1700px;
+
+
+@mixin respond-to($media) {
+    @if $media == xs {
+		@media (max-width: $screen-xs) { @content }
+	} @else if  $media == md {
+		@media (min-width: $screen-md) { @content }
+	} @else if  $media == mdlg {
+		@media (min-width: $screen-mdlg) { @content }
+	} @else if  $media == lg {
+		@media (min-width: $screen-lg) { @content }
+	} @else if  $media == bg {
+		@media (min-width: $screen-bg) { @content }
+	} @else if  $media == al {
+		@media (min-width: $screen-al) { @content }
+	}
+} 

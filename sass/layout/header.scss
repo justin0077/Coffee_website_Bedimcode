@@ -1,4 +1,5 @@
 /*=============== HEADER ===============*/
+
 .header {
     width: 100%;
     background: transparent;
@@ -6,34 +7,38 @@
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-
     .nav {
         height: var(--header-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        &__logo, &__toggle {
-            color: #fff;
+        @include respond-to(mdlg) {
+            height: calc(var(--header-height) + 1.5rem);
         }
 
+        &__logo,
+        &__toggle {
+            color: #fff;
+        }
         &__logo {
             display: flex;
             align-items: center;
             column-gap: .5rem;
             font-weight: var(--font-bold);
-
             &-img {
                 width: .75rem;
             }
         }
-
         &__toggle {
             display: inline-flex;
             font-size: 1.15rem;
             cursor: pointer;
-        }
 
+            @include respond-to(mdlg) {
+                display: none;
+            }
+        }
         &__menu {
             @media screen and (max-width: 767px) {
                 position: fixed;
@@ -45,26 +50,51 @@
                 transition: .3s;
             }
         }
-
         &__list {
             display: flex;
             flex-direction: column;
             text-align: center;
             row-gap: 3rem;
             padding-top: 9rem;
-        }
 
+            @include respond-to(mdlg) {
+                padding-top: 0;
+                flex-direction: row;
+                column-gap: 4rem;
+            }
+        }
         &__link {
             text-transform: uppercase;
             color: var(--text-color-light);
             font-size: var(--h2-font-size);
             transition: .3s;
-
             &:hover {
                 color: #fff;
             }
-        }
+            &.active-link {
+                color: #fff;
+            }
 
+            &::after {
+                @include respond-to(mdlg) {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 12px;
+                    background-color: var(--text-color-light);
+                    transform: translateX(1.25rem);
+                    top: 0;
+                    bottom: 0;
+                    margin: auto 0;
+                }
+            }
+
+            @include respond-to(mdlg) {
+                position: relative;
+                font-size: var(--normal-font-size);
+                text-transform: initial;
+            }
+        }
         &__close {
             font-size: 2rem;
             color: #fff;
@@ -72,28 +102,46 @@
             top: 1rem;
             right: 1rem;
             cursor: pointer;
+
+            @include respond-to(mdlg) {
+                display: none;
+            }
         }
     }
     .show-menu {
         right: 0;
     }
-
-
 }
 
 .scroll-header {
     background-color: var(--body-color);
     box-shadow: 0 1px 4px hsla(0, 4%, 15%, .1);
-
-    .nav__logo, .nav__toggle {
+    .nav__logo,
+    .nav__toggle {
         color: var(--title-color);
     }
-    
     .nav__logo {
         &-img {
             mix-blend-mode: difference;
-            
+        }
+    }
+
+    &.nav {
+        &__link {
+            @include respond-to(mdlg) {
+                color: var(--text-color);
+            }
         }
     }
 }
 
+.scroll-header .active-link {
+
+    @include respond-to(mdlg) {
+        color: var(--title-color) !important;
+    }
+
+    &::after {
+        background-color: var(--title-color);
+    }
+}

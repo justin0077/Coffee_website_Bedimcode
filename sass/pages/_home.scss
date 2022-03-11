@@ -1,33 +1,67 @@
 /*=============== HOME SECTION ===============*/
+
 .home {
     gap: 0;
 
-    &__container {
-        padding: 7rem 0 2.5rem;
-        background: linear-gradient(160deg, hsla(206,5%, 24%, 1) -4%, hsla(206, 12%, 12%, 1) 46%);
-    }
-
-    &__content {
+    @include respond-to(mdlg) {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
         position: relative;
     }
 
-    &__title, &__data-title {
-        color: #fff;
+
+    @include respond-to(al) {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    &__container {
+        padding: 7rem 0 2.5rem;
+        background: linear-gradient(160deg, hsla(206, 5%, 24%, 1) -4%, hsla(206, 12%, 12%, 1) 46%);
+
+        @include respond-to(bg) {
+            padding-top: 10rem;
+        }
+        
+    }
+    &__content {
+        position: relative;
+
+        @include respond-to(mdlg) {
+            position: initial;
+        }
+
+        @include respond-to(lg) {
+           max-width: 400px;
+           margin-right: 7rem;
+           margin-left: auto; 
+        }
+    }
+    &__title,
+    &__data-title {
+        color: #fff;
+    }
     &__title {
         font-size: var(--biggest-font-size);
         margin-bottom: 1.5rem;
+
+        @include respond-to(bg) {
+            margin-bottom: 2rem;
+        }
 
         span {
             color: var(--first-color);
         }
     }
-
     &__description {
         margin-bottom: 2rem;
-    }
 
+        @include respond-to(bg) {
+            margin-bottom: 3rem;
+        }
+
+    }
     &__data {
         border-top: 1px solid var(--text-color);
         padding-top: 2rem;
@@ -35,31 +69,44 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1.5rem;
 
+        @include respond-to(bg) {
+            padding-top: 3rem;
+        }
+
         &-number {
             color: var(--first-color);
             font-size: var(--h1-font-size);
             margin-bottom: 1.5rem;
         }
-
         &-title {
             font-size: var(--h3-font-size);
             margin-bottom: .5rem;
         }
     }
-    
     &__scroll {
-         position: absolute;
-         width: 100px;
-         bottom: -7rem;
-         left: 0;
-         right: 0;
-         margin: 0 auto;
-         animation: scroll 3s infinite;
-    }
+        position: absolute;
+        width: 100px;
+        bottom: -7rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        animation: scroll 3s infinite;
 
+        @include respond-to(mdlg) {
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+
+        @include respond-to(bg) {
+            width: 130px;
+        }
+    }
 }
 
+
 /*=============== SPECIALITY SECTION ===============*/
+
 .speciality {
     &__category {
         margin-top: 4rem;
@@ -67,40 +114,89 @@
         grid-template-columns: 200px;
         justify-content: center;
         row-gap: 2.5rem;
-    }
 
+        @include respond-to(md) {
+          grid-template-columns: repeat(2, 200px);
+          column-gap: 3rem;  
+        }
+
+        @include respond-to(lg) {
+            grid-template-columns: repeat(3, 250px);
+            column-gap: 8rem;
+        }
+    }
     &__img {
         width: 60px;
         margin-bottom: 1rem;
         transition: .4s;
-    }
 
+        @include respond-to(lg) {
+            width: 80px;
+            margin-bottom: 1.5rem;
+        }
+    }
     &__group {
         text-align: center;
-
         &:hover {
             transform: translateY(-.25rem);
         }
-    }
 
+        @include respond-to(lg) {
+            text-align: initial;
+        }
+    }
     &__title {
         font-size: var(--h2-font-size);
         margin-bottom: .25rem;
     }
+    &__box {
+        @include respond-to(lg) {
+            display: grid;
+            grid-template-columns: 2fr .5fr;
+        }
+    }
+    &__line {
+        @include respond-to(lg) {
+            position: relative;
+        }
+
+        &::before {
+            @include respond-to(lg) {
+                content: '';
+                width: 1px;
+                height: 120px;
+                background-color: var(--text-color-light);
+                position: absolute;
+                right: -5rem;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+            }
+        }
+    }
 }
 
+
 /*=============== PRODUCT SECTION ===============*/
+
 .products {
     &__filters {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem 2rem;
         margin-bottom: 3.5rem;
-    }
 
+        @include respond-to(mdlg) {
+            grid-template-columns: repeat(3, 200px);
+        }
+
+        @include respond-to(lg) {
+            margin: 4rem 0 5.5rem;
+            column-gap: 4rem;
+        }
+    }
     &__line {
         position: relative;
-
         &::before {
             content: '';
             position: absolute;
@@ -113,30 +209,35 @@
             margin: auto 0;
         }
     }
-
     &__item {
         cursor: pointer;
     }
-
     &__title {
         font-size: var(--h3-font-size);
         color: var(--text-color);
         margin-bottom: .5rem;
     }
-
     &__stock {
         font-size: var(--small-font-size);
     }
-
     &__content {
         grid-template-columns: 200px;
         justify-content: center;
-    }
 
+        @include respond-to(md) {
+            grid-template-columns: repeat(2, 200px);
+            padding-bottom: 3rem;
+        }
+
+        @include respond-to(lg) {
+            grid-template-columns: repeat(3, 262px);
+            justify-content: initial;
+            column-gap: 5rem;
+        }
+    }
     &__card {
         background-color: var(--container-color);
         border-radius: .5rem;
-
         &:hover {
             .products {
                 &__img {
@@ -144,66 +245,93 @@
                 }
             }
         }
+        @include respond-to(lg) {
+            border-radius: .75rem;   
+        }
     }
-
     &__img {
         width: 150px;
         transition: .4s;
-    }
 
+        @include respond-to(lg) {
+            width: 200px;   
+        }
+    }
     &__shape {
         background-color: var(--card-color);
         border-radius: .5rem .5rem 0 0;
         text-align: center;
         padding: .25rem 0;
-    }
 
+        @include respond-to(lg) {
+            padding: 2rem 0;
+            border-radius: .75rem 0.75rem 0 0;   
+        }
+    }
     &__data {
         padding: 1rem 0 1.25rem 1rem;
         position: relative;
-    }
 
+        @include respond-to(lg) {
+            padding: 1rem 0 1.5rem 1.5rem;   
+        }
+    }
     &__price {
         font-size: var(--h2-font-size);
     }
-
     &__name {
         font-size: var(--normal-font-size);
+
+        @include respond-to(lg) {
+            font-size: var(--h3-font-size);   
+        }
     }
-
     .active-product {
-
         .products {
             &__title {
                 color: var(--title-color);
             }
         }
-
     }
 }
 
+
 /*=============== QUALITY SECTION ===============*/
+
 .quality {
     background-color: #fff;
-
     &__content {
         row-gap: 2.5rem;
-    }
 
+        @include respond-to(mdlg) {
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        @include respond-to(lg) {
+            column-gap: 6rem;   
+        }
+    }
     &__images {
         position: relative;
         justify-self: center;
-    }
 
+        @include respond-to(lg) {
+            margin-top: 2rem;   
+        }
+    }
     &__img {
-        &-big, &-small {
+        &-big,
+        &-small {
             border-radius: .5rem;
         }
-
         &-big {
             width: 280px;
-        }
+            @include respond-to(lg) {
+                width: 428px;
+            }
 
+        }
         &-small {
             width: 100px;
             position: absolute;
@@ -211,37 +339,53 @@
             bottom: 0;
             margin: auto 0;
             transform: translateX(-5rem);
+
+            @include respond-to(xs) {
+                transform: translateX(-6rem);
+            }
+
+            @include respond-to(lg) {
+                width: 153px;
+                transform: translateX(-7rem);
+            }
         }
     }
-
-    &__title, &__price {
+    &__title,
+    &__price {
         font-size: var(--h1-font-size);
     }
-
     &__title {
         margin-bottom: .75rem;
-    }
 
+        @include respond-to(lg) {
+            margin-top: 1.5rem;   
+        }
+    }
     &__price {
         margin-bottom: .25rem;
     }
-
     &__special {
         display: block;
         font-size: var(--small-font-size);
-        margin-bottom: .75rem;;
-    }
+        margin-bottom: .75rem;
 
+        @include respond-to(lg) {
+            margin-bottom: 1rem;   
+        }
+    }
     &__description {
         margin-bottom: 2.5rem;
     }
-
     &__buttons {
         display: flex;
         align-items: center;
         column-gap: 2rem;
-    }
 
+        @include respond-to(xs) {
+            flex-direction: column;
+            row-gap: 1rem;
+        }
+    }
     &__button {
         font-size: var(--normal-font-size);
         text-transform: uppercase;
@@ -249,14 +393,11 @@
         display: inline-flex;
         align-items: center;
         column-gap: .75rem;
-
         i {
             font-size: 1.25rem;
             transition: .4s;
         }
-
         &:hover {
-
             i {
                 transform: translateX(.25rem);
             }
@@ -264,11 +405,11 @@
     }
 }
 
+
 /*=============== LOGO SECTION ===============*/
+
 .logo {
     background-color: #fff;
-
-
     &__container {
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
@@ -276,39 +417,60 @@
         gap: 2.5rem 2rem;
         border-top: 1px solid var(--text-color-light);
         padding-top: 2.5rem;
-    }
 
+        @include respond-to(lg) {
+            grid-template-columns: repeat(5, 1fr);
+            padding: 3.5rem 0; 
+        }
+    }
     &__img {
         width: 80px;
         mix-blend-mode: luminosity;
         opacity: .4;
         transition: .4s;
-
+        margin: 0 auto;
         &:hover {
             opacity: .8;
+        }
+
+        @include respond-to(lg) {
+            width: 110px;   
         }
     }
 }
 
+
 /*=============== BLOG SECTION ===============*/
+
 .blog {
     &__container {
         padding-bottom: 2rem;
-    }
 
+        @include respond-to(lg) {
+            padding-bottom: 5rem;
+        }
+    }
     &__content {
         row-gap: 3rem;
-    }
 
+        @include respond-to(md) {
+            grid-template-columns: 450px;
+            justify-content: center;
+        }
+
+        @include respond-to(lg) {
+            grid-template-columns: repeat(2, 450px);
+            column-gap: 5rem;
+            padding-top: 2rem;   
+        }
+    }
     &__image {
         position: relative;
         margin-bottom: 1.5rem;
     }
-
     &__img {
         border-radius: .5rem;
     }
-
     &__button {
         display: inline-flex;
         background-color: #fff;
@@ -319,47 +481,38 @@
         position: absolute;
         right: 0;
         bottom: 0;
-
         i {
             transform: rotate(-30deg);
             transition: .4s;
         }
-
         &:hover {
             i {
                 transform: rotate(-30deg) translateX(.25rem);
             }
         }
     }
-
     &__title {
         font-size: var(--h2-font-size);
         margin-bottom: .75rem;
     }
-
     &__description {
         margin-bottom: 1.5rem;
     }
-
-    &__footer, &__reaction {
+    &__footer,
+    &__reaction {
         display: flex;
         align-items: center;
     }
-    
     &__footer {
         column-gap: 1.5rem;
     }
-
     &__reaction {
         column-gap: .25rem;
-
         i {
             font-size: 1.25rem;
         }
-        
         span {
             font-size: var(--small-font-size);
         }
     }
-    
 }
