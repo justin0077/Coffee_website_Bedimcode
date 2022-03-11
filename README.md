@@ -8,6 +8,6 @@ I made some changes to challenge myself in to making good and reusable code.
   - Multiple directories for SCSS files
 
 To take a look on this website go to this link:
-[Coffee Website](https://app.netlify.com/sites/loving-euclid-89664d/overview)
+[Coffee Website](https://loving-euclid-89664d.netlify.app/)
 
 All rights go to ©Bedimcode
