@@ -9,5 +9,4 @@ I made some changes to challenge myself in to making good and reusable code.
 
 To take a look on this website go to this link:
 
-
-![preview img](/preview.png)
+All rights go to ©Bedimcode
