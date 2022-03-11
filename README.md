@@ -1,12 +1,13 @@
-# ☕ Responsive Coffee Website
-## [Watch it on youtube](https://youtu.be/kObf5-dJMpw)
-### ☕ Responsive Coffee Website
+# Responsive Coffee Website
+This website was created, by following the youtube course of Bedimcode.
+I made some changes to challenge myself in to making good and reusable code.
 
-- Responsive Coffee Website Using HTML CSS & JavaScript
-- Smooth scrolling in each section.
-- Developed first with the Mobile First methodology, then for desktop.
-- Compatible with all mobile devices and with a beautiful and pleasant user interface.
+# Changes I made
+  - CSS => SCSS
+  - Mixins for breakpoints
+  - Multiple directories for SCSS files
 
-💙 Join the channel to see more videos like this. [Bedimcode](https://www.youtube.com/c/Bedimcode)
+To take a look on this website go to this link:
+
 
 ![preview img](/preview.png)
